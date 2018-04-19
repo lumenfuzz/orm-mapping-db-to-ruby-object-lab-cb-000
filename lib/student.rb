@@ -49,6 +49,10 @@ class Student
     return student
   end
 
+  def self.all_students_in_grade_X(x)
+    return DB[:conn].execute("SELECT * FROM students WHERE grade = (?)", x)
+  end
+
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
