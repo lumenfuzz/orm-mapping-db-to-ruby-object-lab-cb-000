@@ -25,7 +25,7 @@ class Student
   end
 
   def self.count_all_students_in_grade_9
-    return DB[:conn].execute("SELECT * FROM students WHERE grade = 9")[0]
+    puts DB[:conn].execute("SELECT * FROM students WHERE grade = 9")[0]
   end
 
   def save
