@@ -3,6 +3,8 @@ class Student
 
   def initialize(id: nil, name: nil, grade: nil)
     @id = id
+    @name = name
+    @grade = grade
   end
 
   def self.new_from_db(row)
