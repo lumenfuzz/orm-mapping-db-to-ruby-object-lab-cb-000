@@ -1,14 +1,14 @@
 class Student
   attr_accessor :id, :name, :grade
 
-  def initialize(id:, name:, grade:)
+  def initialize(id, name, grade)
     @id = id
     @name = name
     @grade = grade
   end
 
   def self.new_from_db(row)
-    self.initialize(id: row[0], name: row[1], grade: row[2])
+    self.initialize(row[0], row[1], row[2])
   end
 
   def self.all
