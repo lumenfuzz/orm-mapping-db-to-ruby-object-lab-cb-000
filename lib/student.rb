@@ -43,7 +43,10 @@ class Student
   end
 
   def self.first_student_in_grade_10
-    self.first_X_students_in_grade_10(1)[0]
+    student = nil
+    row = DB[:conn].execute("SELECT * FROM students WHERE grade = 10 LIMIT 1")
+    student = self.new_from_db(row)
+    return student
   end
 
   def save
