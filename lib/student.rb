@@ -22,6 +22,8 @@ class Student
     row = DB[:conn].execute("SELECT * FROM students WHERE name = (?)", name)
     student = self.new_from_db(row)
     puts student
+    puts student.name
+    puts student.id
     return student
   end
 
