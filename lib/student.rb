@@ -21,6 +21,7 @@ class Student
     # return a new instance of the Student class
     row = DB[:conn].execute("SELECT * FROM students WHERE name = (?)", name)
     student = self.new_from_db(row)
+    puts student
     return student
   end
 
