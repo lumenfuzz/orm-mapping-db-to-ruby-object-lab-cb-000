@@ -38,6 +38,9 @@ class Student
     return DB[:conn].execute("SELECT * FROM students WHERE grade = 9 OR grade = 10 OR grade = 11")
   end
 
+  def self.first_X_students_in_grade_10(x)
+    return DB[:conn].execute("SELECT * FROM students WHERE grade = 10 LIMIT (?)", x)
+
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
