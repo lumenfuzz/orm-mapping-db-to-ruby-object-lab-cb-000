@@ -8,7 +8,8 @@ class Student
   end
 
   def self.new_from_db(row)
-    self.new(id: row[0], name: row[1], grade: row[2])
+    student = self.new(id: row[0], name: row[1], grade: row[2])
+    return student
   end
 
   def self.all
@@ -20,8 +21,6 @@ class Student
     # find the student in the database given a name
     # return a new instance of the Student class
     row = DB[:conn].execute("SELECT * FROM students WHERE name = (?)", name)
-    puts row
-    puts row
     student = self.new_from_db(row)
     return student
   end
