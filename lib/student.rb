@@ -28,6 +28,10 @@ class Student
     return DB[:conn].execute("SELECT * FROM students WHERE grade = 9")
   end
 
+  def self.students_below_12th_grade
+    return DB[:conn].execute("SELECT * FROM students WHERE grade = 9 OR grade = 10 OR grade = 11")
+  end
+  
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
